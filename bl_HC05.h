@@ -1,33 +1,24 @@
-#ifndef BLUETOOTH_H
-#define BLUETOOTH_H
+#ifndef BL_HC05_H
+#define BL_HC05_H
+
+#include "controle.h"
+extern bool updated = false;
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+
+//#include "display.h"
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
 
 #include <SoftwareSerial.h>
 SoftwareSerial BT(3, 2); //RX, TX
 
 char c; //variavel para receber os comandos do celular
 
-//açoes possiveis
-enum Actions{
-  Save,
-  GoSav,
-  BaseLef,
-  BaseRig,
-  ElbUp,
-  ElbDow,
-  ShoFow,
-  ShoBac,
-  ClaOp,
-  ClaClo
-};
-
-Actions a;
-
-void bl_connection() {
+void bl_setup() {
   BT.begin(9600); //comunicaçao do modulo
-  Serial.println("Bluetooth ligado!");
+  Serial.println("Procurando Bluetooth ...");
 }
 
-void bl_print() {
+void bl_cmd() {
   if (BT.available()) {
     c = BT.read();
 
@@ -35,24 +26,52 @@ void bl_print() {
     if(c != '\r' && c != '\n'){
       Serial.print("Recebido: ");
       Serial.println(c);
-      
-      //fazendo as funçoes de acordo com o comando do celular
-      switch(c){
-        case 1: a = Save; break;
-        case 2: a = GoSav; break;
-        case 3: a = BaseLef; break;
-        case 4: a = BaseRig; break;
-        case 5: a = ElbUp; break;
-        case 6: a = ElbDow; break;
-        case 7: a = ShoFow; break;
-        case 8: a = ShoBac; break;
-        case 9: a = ClaOp; break;
-        case 10: a = ClaClo; break;
-      }
+    }
+
+    if(c == 'L' && base_position < angle_max){
+      base_position += 5;
+      updated = true;
+    }
+    if(c == 'R' && base_position > angle_min){
+      base_position -= 5;
+      updated = true;
+    }
+    if(c == 'F' && elbow_position < angle_max){
+      elbow_position += 5;
+      updated = true;
+    }
+    if(c == 'B' && elbow_position > angle_min){
+      elbow_position -= 5;
+      updated = true;
+    }
+    if(c == 'U' && shoulder_position < angle_max){
+      shoulder_position += 5;
+      updated = true;
+    }
+    if(c == 'D' && shoulder_position > angle_min){
+      shoulder_position -= 5;
+      updated = true;
+    }
+    if(c == 'O'){
+      claw_position = claw_open;
+      updated = true;
+    }
+    if(c == 'C'){
+      claw_position = claw_close;
+      updated = true;
+    }
+
+    base.write(base_position);
+    elbow.write(elbow_position);
+    shoulder.write(shoulder_position);
+    claw.write(claw_position);
+
+    if(updated && msg_empt == ""){
+    show_angle();
     }
   }
 
-  //descomentar para testar o bluetooth
+  //se precisar testar o bluetooth
   /*if (Serial.available() > 0) {
     BT.write(Serial.read());
   }*/

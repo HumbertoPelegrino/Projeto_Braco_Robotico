@@ -5,15 +5,15 @@
 void setup(){
   Serial.begin(9600);
 
-  bl_connection();
+  bl_setup();
   
-  display_init();
+  display_setup();
   
-  control_init();
+  control_setup();
 }
 
 void loop(){
-  bl_print();
+  bl_cmd();
   
   movement_PS2();
 }
