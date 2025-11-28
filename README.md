@@ -23,13 +23,13 @@ O projeto está em desenvolvimento contínuo. Versões preliminares incluem:
 - Planejamento de próximas etapas: migração do código para o Raspberry Pi 5, novo protótipo de braço, novos componentes eletrônicos e melhorar a documentação de uso.
 
 - ## 🙋‍♂️ Autor / Colaboradores  
-- **Humberto Pelegrino** — Graduando em Engenharia Elétrica (UERJ) / desenvolvedor principal
+- **Humberto Pelegrino** — Graduando em Engenharia Elétrica / desenvolvedor principal
 - **Dr. Pedro da Costa** — Neurocirurgião / Orientador  
-- **Alexandre Carrión** — Estudante de Medicina / Apoio em Testes e Validação
+- **Alexandre Carrión** — Graduando em Medicina / Apoio em Testes e Validação
 - **Lucas Carreira** — Engenheiro Químico / Apoio em Testes e Validação
 
 - ## 📄 Licença  
-MIT (ou outra que escolher)
+MIT license
 
 ## 🙏 Agradecimentos  
 Agradeço a todos colaboradores e ao professor orientador pelo apoio e pela oportunidade de desenvolver este projeto.  
