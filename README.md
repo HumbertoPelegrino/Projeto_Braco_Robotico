@@ -15,20 +15,20 @@ Este repositório contém o código-fonte, modelos de controle e documentação 
 - Algoritmos de cinemática direta, planejamento de movimento, controle de sistemas embarcados
 - Protocolos de comunicação, drivers de sensores / atuadores
 
-- ## 📌 Status Atual  
+## 📌 Status Atual  
 O projeto está em desenvolvimento contínuo. Versões preliminares incluem:  
 - Movimentação básica e controle dos atuadores;  
 - Calibração inicial de servomotores;  
 - Estrutura modular de controle e comunicação entre os módulos;  
 - Planejamento de próximas etapas: migração do código para o Raspberry Pi 5, novo protótipo de braço, novos componentes eletrônicos e melhorar a documentação de uso.
 
-- ## 🙋‍♂️ Autor / Colaboradores  
+## 🙋‍♂️ Autor / Colaboradores  
 - **Humberto Pelegrino** — Graduando em Engenharia Elétrica / desenvolvedor principal
 - **Dr. Pedro da Costa** — Neurocirurgião / Orientador  
 - **Alexandre Carrión** — Graduando em Medicina / Apoio em Testes e Validação
 - **Lucas Carreira** — Engenheiro Químico / Apoio em Testes e Validação
 
-- ## 📄 Licença  
+## 📄 Licença  
 MIT license
 
 ## 🙏 Agradecimentos  
